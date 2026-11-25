@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>El Galeón del Callao · La Ruta del Pacífico</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main id="juegoCompleto">
+<header><div class="marca"><span class="brujula">✥</span><div>EL GALEÓN DEL CALLAO<small>LA RUTA DEL PACÍFICO</small></div></div><div class="acciones"><span class="modo" id="modoActual">PREPARAR PARTIDA</span><button id="sonido">Sonido activo</button><button id="pausar" disabled>Pausar</button></div></header>
+<div class="zona-partida">
+<section class="tablero hud-juego" id="tablero" hidden aria-label="Estado de los barcos">
+<div class="barco-panel uno" id="panelUno"><div class="capitan"><b id="nombreUno">Jugador 1</b><span id="estadoUno">Listo para zarpar</span></div><div class="medidores"><label>Casco <meter id="cascoUno" min="0" max="100" value="100"></meter><span id="valorCascoUno">100%</span></label><label>Mercancía <meter id="cargaUno" min="0" max="100" value="100"></meter><span id="valorCargaUno">100%</span></label></div></div>
+<div class="ruta"><span id="nombreRuta">CALLAO — GUAYAQUIL — PANAMÁ</span><strong id="satisfaccion">100% <small>satisfacción de entrega</small></strong><div class="progreso"><i id="barraRuta"></i></div><span id="avanceRuta">Dos barcos. Una misión compartida.</span></div>
+<div class="barco-panel dos" id="panelDos" hidden><div class="capitan"><b id="nombreDos">Jugador 2</b><span id="estadoDos">Listo para zarpar</span></div><div class="medidores"><label>Casco <meter id="cascoDos" min="0" max="100" value="100"></meter><span id="valorCascoDos">100%</span></label><label>Mercancía <meter id="cargaDos" min="0" max="100" value="100"></meter><span id="valorCargaDos">100%</span></label></div></div>
+</section>
+<section id="escenarioJuego" data-jugadores="1" class="escenario" aria-label="Aventura naval"><div id="bloque_juego"></div>
+
+<div id="portada" class="portada"><form class="portada-contenido" id="formularioInicio"><p class="etiqueta" id="etiqueta">UNA AVENTURA EN EL MAR DEL SUR</p><h1 id="titulo">El Galeón<br>del Callao</h1><p class="subtitulo" id="subtitulo">Elige cómo navegar esta travesía.</p><p id="descripcion">Navega, protege la mercancía y llega al puerto. Puedes jugar solo o compartir la misión con un compañero.</p><fieldset id="configuracionPartida" class="configuracion">
+<legend>¿Cómo deseas jugar?</legend>
+<div class="opciones-modo">
+<label><input type="radio" name="modoJuego" id="modoSolo" value="1" checked><span>Jugar solo</span></label>
+<label><input type="radio" name="modoJuego" id="modoDuo" value="2"><span>Con un compañero</span></label>
+</div>
+<div class="campos-nombres">
+<label>Tu nombre<input id="nombreJugadorUno" name="nombreUno" type="text" maxlength="18" placeholder="Escribe tu nombre" autocomplete="off" required></label>
+<label id="campoJugadorDos" hidden>Nombre de tu compañero<input id="nombreJugadorDos" name="nombreDos" type="text" maxlength="18" placeholder="Nombre del jugador 2" autocomplete="off" disabled></label>
+</div>
+</fieldset><div class="botones-inicio"><button id="iniciar" type="submit" disabled>Comenzar travesía</button><button id="cambiarJugadores" type="button" hidden>Cambiar jugadores</button></div><p class="autor">Carlos Manrique Alvarez · Diseño y Desarrollo de Juegos Interactivos I</p></form></div>
+<div class="aviso" id="mensaje" role="status" aria-live="polite">Activen el micrófono o usen ambos teclados para comenzar.</div><div id="pausaVisible" hidden>TRAVESÍA EN PAUSA</div>
+</section>
+</div>
+<section class="voz"><button id="microfono">Activar micrófono</button><span id="estadoMicrofono">Voz desactivada</span><span class="destinatario" id="destinatario">Órdenes para J1</span><p id="escuchado" role="status">Di «uno avanzar», «dos disparar» o «ambos parar».</p></section>
+<section class="instrucciones"><div><b>JUGADOR 1</b><p>Flechas para navegar · Espacio para disparar</p></div><div id="controlesDos" hidden><b>JUGADOR 2</b><p>W A S D para navegar · F para disparar</p></div><div><b>ÓRDENES DE VOZ</b><p>Uno / dos / ambos + avanzar, retroceder, arriba, abajo, disparar, cesar o parar</p></div></section>
+<details><summary>Cómo completar la misión y contexto histórico</summary><div class="ayuda"><p><strong>Objetivo.</strong> Llegar al final de los dos tramos. En modo cooperativo deben llegar ambos barcos. Los proyectiles y choques dañan el casco y reducen la mercancía. Recoger cajas recupera carga y los suministros verdes reparan el casco. Si se hunde un barco, se repite el tramo con el mismo modo y los mismos nombres. Al terminar la ruta necesitan conservar al menos 60% de la carga conjunta. La satisfacción se calcula con la mercancía conservada por los jugadores activos.</p><p><strong>Voz compartida.</strong> Al jugar solo puedes dar órdenes directamente. En modo cooperativo, dos personas comparten computadora y micrófono. Di primero «uno», «dos» o «ambos». «Disparar» activa los cañones continuamente y «cesar» los apaga. «Parar» detiene la navegación. «Continuar» permite zarpar o pasar al siguiente tramo.</p><p><strong>Inspiración histórica.</strong> La navegación mercantil y la Armada del Mar del Sur conectaron el Callao con puertos del Pacífico colonial. Este prototipo representa dos etapas de una travesía ficticia por Callao, Guayaquil y Panamá. Sus combates, barcos y tiempos son decisiones de juego. Fuentes del contexto histórico <a href="https://www.gob.pe/26624-marina-de-guerra-del-peru-el-peru-virreinal" target="_blank" rel="noreferrer">Marina de Guerra del Perú</a> y <a href="https://www.bcrp.gob.pe/docs/Publicaciones/libros/historia/economia/3-economia-colonial-tardio.pdf" target="_blank" rel="noreferrer">Banco Central de Reserva del Perú</a>.</p><p>Prueba el micrófono en Chrome o Edge y permite su uso. El servicio de reconocimiento puede requerir Internet. El juego no almacena grabaciones. Las imágenes se cargan desde la carpeta img del proyecto.</p></div></details>
+</main><script src="phaser.js"></script><script src="Ventana_Principal.js"></script><script src="Control_Voz.js"></script></body></html>
+
