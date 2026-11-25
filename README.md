@@ -75,11 +75,11 @@ Para probar el reconocimiento de voz, utiliza Chrome o Edge con conexión a Inte
 
 ## Pantallazos
 
-Pendientes de incorporar.
+https://drive.google.com/drive/folders/1PT3k3FJKyeBcvbjdCIKiKLoUMDefMLGR?usp=sharing
 
 ## Video demostrativo
 
-Pendiente de incorporar.
+https://drive.google.com/drive/folders/1W9ysXLxkfs7rxBIfLcHzMhmSOmJq5c_Y?usp=sharing
 
 ## Ejecución local
 
