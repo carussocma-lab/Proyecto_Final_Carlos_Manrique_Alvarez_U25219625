@@ -101,3 +101,82 @@ header { padding: 12px 0; }
     .hud-juego .ruta strong small { display: inline; }
     .escenario[data-jugadores="2"] .aviso { bottom: 14px; }
 }
+
+/* Adaptación para celulares: portada legible y escenario sin deformación. */
+@media (max-width: 600px) {
+    main { padding: 0 10px 16px; }
+    header { flex-wrap: wrap; gap: 8px; }
+    .marca { min-width: 0; }
+    .acciones { margin-left: auto; }
+    .zona-partida { gap: 8px; }
+    .escenario:has(#portada:not([hidden])) {
+        aspect-ratio: auto;
+        height: clamp(350px, 66dvh, 520px);
+    }
+    .portada { padding: 16px; }
+    .portada-contenido { max-height: 100%; }
+    .campos-nombres { flex-direction: column; }
+    .campos-nombres label { min-width: 0; }
+    .hud-juego .medidores label { grid-template-columns: 57px minmax(0, 1fr) 32px; font-size: 10px; }
+    .hud-juego .barco-panel { min-width: 0; padding: 8px; }
+    .hud-juego .capitan b { font-size: 12px; }
+    .hud-juego .ruta { padding: 6px; }
+    .hud-juego .ruta strong { font-size: 18px; margin-bottom: 3px; }
+    .escenario .aviso { font-size: 10px; padding: 4px 6px; max-width: 94%; bottom: 5px; }
+    .escenario[data-jugadores="2"] .aviso { bottom: 5px; }
+    .voz { gap: 8px; }
+    .voz .destinatario { border-left: 0; padding-left: 0; }
+}
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 1200px) {
+    main { padding: 0 10px 10px; }
+    header { padding: 5px 0; gap: 8px; }
+    .marca { font-size: 12px; }
+    .marca small { font-size: 9px; letter-spacing: 1px; margin-top: 2px; }
+    .brujula { font-size: 26px; }
+    .modo { display: none; }
+    .acciones button { padding: 7px 9px; font-size: 12px; }
+    .zona-partida {
+        display: grid;
+        grid-template-columns: 152px minmax(0, 1fr);
+        gap: 10px;
+        width: min(100%, calc((100dvh - 122px) * 16 / 9 + 162px));
+    }
+    .zona-partida:has(#tablero[hidden]) { display: block; width: min(100%, calc((100dvh - 122px) * 16 / 9)); }
+    .tablero.hud-juego { display: flex; gap: 5px; }
+    .hud-juego .barco-panel { padding: 6px; }
+    .hud-juego .capitan { margin-bottom: 4px; }
+    .hud-juego .capitan b { font-size: 11px; }
+    .hud-juego .capitan span { display: none; }
+    .hud-juego .medidores label { grid-template-columns: 55px minmax(0, 1fr) 29px; gap: 3px; font-size: 10px; margin-top: 3px; }
+    .hud-juego .ruta { padding: 5px; }
+    .hud-juego .ruta strong { font-size: 17px; display: block; margin: 3px 0; }
+    .hud-juego .ruta strong small { display: none; }
+    .hud-juego .ruta > span:first-child { font-size: 9px; letter-spacing: 0; }
+    .hud-juego .ruta > span:last-child { display: none; }
+    .portada { padding: 8px 14px; }
+    .portada h1 { font-size: 24px; margin-bottom: 4px; }
+    .portada .subtitulo, .portada #descripcion, .portada .etiqueta, .portada .autor { display: none; }
+    .configuracion { margin-bottom: 6px; }
+    .configuracion legend { font-size: 12px; margin-bottom: 5px; }
+    .opciones-modo { margin-bottom: 5px; }
+    .opciones-modo label { padding: 5px; font-size: 11px; }
+    .campos-nombres { flex-direction: row; gap: 8px; }
+    .campos-nombres label { min-width: 110px; font-size: 11px; }
+    .campos-nombres input { padding: 5px 7px; margin-top: 3px; }
+    #iniciar { padding: 6px 10px; font-size: 12px; }
+    .voz { padding: 6px 0; gap: 8px; }
+    .voz > button { padding: 7px 9px; font-size: 12px; }
+    .voz > span, .voz > p { font-size: 11px; }
+    .voz > p { width: auto; margin: 0 0 0 auto; }
+    .escenario .aviso { font-size: 10px; padding: 4px 7px; bottom: 4px; }
+    .escenario[data-jugadores="2"] .aviso { bottom: 4px; }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+    .escenario:has(#portada:not([hidden])) #bloque_juego canvas {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+    }
+}
